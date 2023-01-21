@@ -1,5 +1,6 @@
 # VideoConverter
 ## Powershell script converter for any video files (to h264, aac, subrip .mkv files) using ffmpeg For Plex
+### ffmpeg and PATH is required (http://ffmpeg.org/)
 
 ## File names appended with "_converted" once converted or matching format
 
@@ -25,3 +26,4 @@
 │   ├── Episode.mkv
 ```
 
+Default output formats for video, audio, and subtitles can be changed by changing the variables $videoFormat, $audioFormat, and $subtitleFormat - this uses the format names used by ffmpeg
