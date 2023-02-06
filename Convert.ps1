@@ -5,6 +5,7 @@
 $videoFormat = "h264"
 $audioFormat = "aac"
 $subtitleFormat = "subrip"
+$dvdsubtitle = "dvb_subtitle"
 
 $Host.UI.RawUI.WindowTitle = "File Convert"
 
@@ -36,6 +37,7 @@ function convertAll {
                     $videoFormat { $video = $true }
                     $audioFormat { $audio = $true }
                     $subtitleFormat { $sub = $true }
+                    $dvdsubtitle { $sub = $true }
                 }
             }
 
@@ -81,7 +83,9 @@ function convertAll {
                     $_ | Out-File $logPath -Append
                     return
                 }
-                remove-Item $_
+                if (Test-Path($out)) {
+                    remove-Item $_
+                }
             }
         }
     }
